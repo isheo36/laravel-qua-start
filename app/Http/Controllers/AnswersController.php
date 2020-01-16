@@ -27,8 +27,6 @@ class AnswersController extends Controller
             'user_id' => \Auth::id()
         ]);
 
-        $question->increment('answers_count');
-
         return back()->with('success','Your answer is submitted successfully');
     }
 
@@ -75,6 +73,6 @@ class AnswersController extends Controller
 
         $answer->delete();
 
-        return redirect()->route('questions.show', $question->slug)->with('success', 'Your answer was removed');
+        return back()->with('success', 'Your answer has been removed');
     }
 }
