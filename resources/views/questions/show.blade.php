@@ -57,6 +57,9 @@
         'answersCount' => $question->answers_count,
     ])
 
-    @include('answers._create')
+    @auth
+        @include('answers._create')
+    @endauth
+    
 </div>
 @endsection
